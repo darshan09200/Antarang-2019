@@ -5,39 +5,8 @@ var serviceAccount = require("../../serviceAccount.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://plastic-factory-f22e2.firebaseio.com"
+    databaseURL: "your database url"
 });
-
-/*
-admin.auth().createUser({
-    email: 'user@example.com',
-    emailVerified: false,
-    phoneNumber: '+11234567890',
-    password: 'secretPassword',
-    displayName: 'John Doe',
-    photoURL: 'http://www.example.com/12345678/photo.png',
-    disabled: false
-  })
-    .then(function(userRecord) {
-      // See the UserRecord reference doc for the contents of userRecord.
-      console.log('Successfully created new user:', userRecord.uid);
-    })
-    .catch(function(error) {
-      console.log('Error creating new user:', error);
-    });
-
-*/
-
-
-// var client_config = {
-//     apiKey: "AIzaSyAv2-EpbD2UrsEMjzlc7kYO74FPiSgxbL8",
-//     authDomain: "plastic-factory-f22e2.firebaseapp.com",
-//     databaseURL: "https://plastic-factory-f22e2.firebaseio.com",
-//     projectId: "plastic-factory-f22e2",
-//     storageBucket: "plastic-factory-f22e2.appspot.com",
-//     messagingSenderId: "175039860653",
-//     appId: "1:175039860653:web:bbde767da0c4e70e"
-// };
 
 //Realtime Databse 
 var realTime = admin.database()
