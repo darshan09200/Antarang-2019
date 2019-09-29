@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%=title%>
+    </title>
+    <%- include('partials/files.ejs') %>
+
+    <link rel="stylesheet" href="/css/view-style.css">
+</head>
+
+<body>
+
+    <%-include('./partials/navbar.ejs')%>
+
+    <div class="container table_container justify-content-center">
+        <div class="row table_heading text-center h4">
+            <div class="col-3 border border-secondary table_heading_text">
+                <span>Event name</span>
+            </div>
+            <div class="col-5 border border-secondary table_heading_text">
+                <span>Description</span>
+            </div>
+            <div class="col-3 border border-secondary table_heading_text">
+                <span>Max Entries (Allowed)</span>
+            </div>
+        </div>
+        <!-- <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Collapsible Group Item #1
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+              </div>
+            </div>
+        </div> -->
+        <div id="events_list">
+            <% for(var i = 0; i < event_data.length; i++) { %>
+            <div class="row table_content text-center" data-parent="#events_list" id=<%="event_data_heading-"+(i+1)%>
+                data-toggle="collapse" data-target=<%= "#event_data-"+(i+1) %> aria-expanded="false"
+                aria-controls=<%= "event_data-"+(i+1) %>>
+
+                <div class="col-3 border-bottom border-secondary table_content_text justify-content-center">
+                    <span><%=event_data[i].name%></span>
+                </div>
+                <div class="col-5 border-bottom border-secondary table_content_text">
+                    <span><%=event_data[i].description%></span>
+                </div>
+                <div class="col-3 border-bottom border-secondary table_content_text">
+                    <span><%=event_data[i].max%></span>
+                </div>
+
+            </div>
+            <div class="collapse text-center" data-parent="#events_list" id=<%="event_data-"+(i+1) %>></div>
+
+            <% } %>
+        </div>        
+    </div>
+
+
+    <script>var count=<%=event_data.length%>;var temp="<%-id%>"</script>
+    <script src="/js/view-main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+div#update_form .row .input-group{
+    margin-top: 1rem;
+}
+
+div#update_form .row .input-group .input_icon{
+    position: relative;
+    transform: translate(-50%, 0%);
+    margin: 0.3rem;
+}
+
+div#update_form .row .input-group .input_icon svg{
+    width: 1.75rem;
+}
+
+.event_details_container .row .input-group{
+    margin-bottom: 1rem;
+}
+
+div#table_content{
+    margin-top: 1rem;
+}
+
+@media (max-width: 400px) {
+    div#update_form table#event_table{
+        font-size: 0.75rem;
+    }    
+}

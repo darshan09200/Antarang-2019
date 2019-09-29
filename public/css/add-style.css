@@ -1,0 +1,76 @@
+.personal_details_container .row .form_heading,
+.event_details_container .row .form_heading{
+    margin: 0.75rem;
+}
+
+.personal_details_container .row .input-group,
+.event_details_container .row .input-group{
+    margin-top: 1rem;
+}
+
+.personal_details_container .row .input-group .input_icon,
+.event_details_container .row .input-group .input_icon{
+    position: relative;
+    transform: translate(-50%, 0%);
+    margin: 0.3rem;
+}
+
+.personal_details_container .row .input-group .input_icon svg,
+.event_details_container .row .input-group .input_icon svg{
+    width: 1.75rem;
+}
+
+.event_details_container .row .input-group{
+    margin-bottom: 1rem;
+}
+
+.event_details_container .row #event_data .row{
+    margin: 0.5rem;
+}
+
+.row #add_btn{
+    margin: 1rem;
+}
+
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;    
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+  

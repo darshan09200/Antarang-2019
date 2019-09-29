@@ -1,0 +1,7 @@
+.container .form_header {
+    margin: 0.5rem;
+}
+
+.container .form_header div:first-child {
+    margin: 0.5rem;
+}

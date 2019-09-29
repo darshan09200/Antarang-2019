@@ -1,0 +1,118 @@
+
+
+#navbar{    
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(17, 17, 17, 0.9);
+    overflow-x: hidden;
+    padding-top: 100px;
+    padding-right: 3.5rem;
+    opacity: 0;
+}
+
+#navbar li{
+    display: none;
+}
+#navbar.show {       
+    transition: all 4s ease;
+    opacity: 1;
+    width: 100%;        
+}
+
+#navbar.remove{
+    transition: all 2s ease;    
+    opacity: 0;
+    width: 0%;
+}
+
+.menu_icon_container{
+    position: absolute;    
+    width: 100%;
+    height: 100%;
+    cursor: pointer;        
+    transition: 1.5s;
+}
+
+.hamburger{
+    z-index: 1000;
+    width: 35px;
+    height: 6px;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(50%, -50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+.hamburger::before,
+.hamburger::after{
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 6px;
+    background: #000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 1s;
+}
+
+.hamburger::before{
+    top: -13px;
+}
+
+.hamburger::after{
+    top: 13px;
+}
+
+.menu_icon_container.active{
+    transition: 1.5s;
+    right: -50%;
+}
+
+.menu_icon_container.active .hamburger{
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0);
+}
+
+.menu_icon_container.active .hamburger::before{
+    background: #fff;
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu_icon_container.active .hamburger::after{
+    background: #fff;
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 767.98px) {
+    #navbar.show{
+        transition: all 1.5s ease;
+    }
+    #navbar.remove{
+        transition: all 1s ease;
+    }
+    .hamburger{
+        right: 75%;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #navbar.show{
+        transition: all 2.5s ease;
+    }
+    #navbar.remove{
+        transition: all 1.5s ease;
+    }
+    .hamburger{
+        right: 50%;
+    }
+}
+

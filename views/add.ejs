@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%=title%>
+    </title>
+    <%- include('partials/files.ejs') %>
+
+    <link rel="stylesheet" href="/css/add-style.css">
+</head>
+
+<body>
+
+    <%-include('./partials/navbar.ejs')%>
+
+    <!--
+        Personal Details 
+            name
+            year
+            course
+            div
+            roll no
+            contact
+            email
+        Event Details
+            event 
+    -->
+
+    <div class="container">
+        <form id="add_form">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="container personal_details_container">
+                        <div class="row justify-content-center">
+                            <div class="form_heading h4 text-center">
+                                <span>Participant Details</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" offset-lg-1 col-lg-10 input-group" title="Name of the Participant">
+                                <div class="input-group-prepend">
+                                    <span id="pname_label" class="input_icon h4">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Name of the Participant"
+                                    aria-label="pname" aria-describedby="pname_label" name="pname" id="pname">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-5 offset-lg-1 col-lg-4 input-group"
+                                title="Course Details of Participant">
+                                <div class="input-group-prepend">
+                                    <span id="pcourse_label" class="input_icon h4">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" id="pcourse" aria-describedby="pcourse_label"
+                                    name="pcourse" title="Course">
+                                    <option>Course</option>
+                                    <% for( var i = 0; i < course_data.length; i++) {%>
+                                    <option><%=course_data[i]%></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <div class="col-3 col-md-4 col-lg-3 input-group" title="Year"
+                                style="padding-left: 0.25rem;">
+                                <select class="form-control" id="pcourse_year" aria-describedby="pcourse_label"
+                                    name="pcourse_year">
+                                </select>
+                            </div>
+                            <div class="col-3 col-md-3 input-group" title="Div" style="padding-left: 0.25rem;">
+                                <select class="form-control" id="pcourse_div" aria-describedby="pcourse_label"
+                                    name="pcourse_div">
+                                </select>
+                            </div>
+                            <input type="hidden" id="add" value='<%-JSON.stringify(course_div_data) %>'>
+                        </div>
+                        <div class="row">
+                            <div class=" offset-lg-1 col-lg-10 input-group" title="Roll No of the Participant">
+                                <div class="input-group-prepend">
+                                    <span id="proll_no_label" class="input_icon h4">
+                                        <i class="fas fa-id-card"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Roll No of the Participant"
+                                    aria-label="proll_no" aria-describedby="roll_no_label" name="proll_no"
+                                    id="proll_no">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" offset-lg-1 col-md-10 input-group" title="Contact No of the Participant">
+                                <div class="input-group-prepend">
+                                    <span id="pno_label" class="input_icon h4">
+                                        <i class="fas fa-phone fa-rotate-90"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" id="pno" name="pno"
+                                    placeholder="Contact No of the Participant" aria-label="pno"
+                                    aria-describedby="pno_label">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" offset-md-1 col-md-10 input-group" title="Email Address of the Participant">
+                                <div class="input-group-prepend">
+                                    <span id="pemail_label" class="input_icon h4">
+                                        <i class="fas fa-at"></i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" id="pemail" name="pemail"
+                                    placeholder="Email Address of the Participant" aria-label="pemail"
+                                    aria-describedby="pemail_label">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container event_details_container">
+                        <div class="row justify-content-center">
+                            <div class="form_heading h4 text-center">
+                                <span>Event Details</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class=" offset-lg-1 col-md-10 input-group" title="Select Event to Participate">
+                                <div class="input-group-prepend">
+                                    <span id="pevent_label" class="input_icon h4">
+                                        <i class="fas fa-calendar-alt "></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" id="pevent" aria-describedby="pevent_label" name="pevent">
+                                    <option value=-1>Event</option>
+                                    <% for(var i = 0 ; i < events_data.length ; i++ ) { %>
+                                    <option value=<%=i+1%>><%=events_data[i].name%></option>
+                                    <% } %>
+                                </select>
+                                <input type="hidden" id="event" value='<%-JSON.stringify(events_data)%>'>
+                            </div>
+                            <div class=" offset-lg-1 col-md-10" id="event_data">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <input type="hidden" id="state" name="state" value="add">
+                <input type="hidden" id="key" name="key" value=''>
+                <button type="submit" class="btn btn-info btn-lg" id="add_btn">Add Participant</button>
+            </div>
+        </form>
+    </div>
+    <div id="snackbar"></div>
+    <script>
+        var temp = "<%-id %>";
+        var add = JSON.parse($("#add").val());
+    </script>
+    <script src="/js/add-main.js"></script>
+    <script>
+        clearDiv();
+        clearYear();
+    </script>
+</body>
+
+</html>

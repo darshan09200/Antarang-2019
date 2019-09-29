@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%-title%>
+    </title>
+
+    <%-include('./partials/files')%>
+
+    <link rel="stylesheet" href="/css/login-style.css">
+
+</head>
+
+<body>
+    <div class="container login_form_container">
+        <div class="row">
+            <div class="col-sm-8 col-md-6 col-lg-4">
+                <%-include('./partials/form-header')%>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-md-6 col-lg-4">
+                <form action="/login" method="post" class="login_form">
+                    <div class="row" title="Username">
+                        <label for="login_user_uname" class="input_text text-muted">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span id="login_user_uname_label" class="input_icon h5">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="login_user_uname" name="login_user_uname"
+                                aria-describedby="login_user_uname_label">
+                        </div>
+                    </div>
+                    <div class="row" title="Password">
+                        <label for="login_user_pwd" class="input_text text-muted">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span id="login_user_pwd_label" class="input_icon h5">
+                                    <i class="fas fa-key"></i>
+                                </span>
+                            </div>
+                            <input type="password" class="form-control" id="login_user_pwd" name="login_user_pwd"
+                                aria-describedby="login_user_pwd_label">
+                            <div class="input-group-append">
+                                <span id="pwd_visible" title="Show/Hide Password">
+                                    <i class="far fa-eye" id="pwd_visible_icon"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="btn_container">
+                            <button type="submit" class="btn btn-info" id="login_btn">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-sm-8 col-md-6 col-lg-4">
+                <div class="form_footer">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div>
+                                <span>Forgot Password?</span>
+                                <a href="/forgot_pwd" class="text-primary" title="Forgot Password">Click Here</a>
+                            </div>
+                        </div>
+                        <!-- <div class="col-sm-6 text-center">
+                            <div>
+                                <span>Don't have account?</span>
+                                <a href="/register" class="text-primary" title="Create new account">Create one</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="snackbar"></div>
+    <script>
+        var attempt = typeof parseInt( <%-attempt %> ) === "number" ? parseInt(<%-attempt %>) : 3;        
+        $(document).ready(function () {
+            //Password Visibility
+            $("#pwd_visible").click(function () {
+                var check = $('#pwd_visible_icon').hasClass("fa-eye");
+                if (check) {
+                    $('#pwd_visible_icon').removeClass("fa-eye");
+                    $('#pwd_visible_icon').addClass("fa-eye-slash");
+                    $('#login_user_pwd').attr('type', 'text');
+                } else {
+                    $('#pwd_visible_icon').addClass("fa-eye");
+                    $('#pwd_visible_icon').removeClass("fa-eye-slash");
+                    $('#login_user_pwd').attr('type', 'password');
+                }
+            });
+        });
+
+    </script>
+    <script src="/js/login-main.js"></script>
+</body>
+
+</html>
